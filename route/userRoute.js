@@ -55,7 +55,7 @@ userRoute.post("/login", async(req,res)=>{
             }
             if(result){
                 const token = jwt.sign({ userId : user._id, UserName : user.Username }, '123');
-                res.status(200).json({message:"User Successfully Logged In", token:token})
+                res.status(200).json({message:"User Successfully Logged In", token:token, username:user.Username, img:user.Avatar})
             }
             
         });
