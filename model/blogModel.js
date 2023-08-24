@@ -7,7 +7,7 @@ const BlogSchema = mongoose.Schema({
     content : {type:String, required:true},
     category : {type:String, required:true},
     date : {type:Date, default: Date.now},
-    likes : {type:Number, required:true},
+    likes : {type:String, required:true},
     comments : [{username:{type:String}, content:{type:String}}],
     userId : {type:String, required:true}
 
