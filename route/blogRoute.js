@@ -98,16 +98,19 @@ blogRoute.patch("/:id",auth, async(req,res)=>{
 
         const {userId, UserName} = req.userInfo
 
-        await BlogModel.find({_id:id}).then(async(result)=>{
-            if(result[0].userId==userId){
-               let val = await BlogModel.findByIdAndUpdate(id, req.body)
-                // console.log(val)
-                res.status(200).json({message:"Blog Updated Successfully"})
-            }
-            else{
-                res.status(400).json({error:"not allowed"})
-            }
-        })
+        // await BlogModel.find({_id:id}).then(async(result)=>{
+        //     if(result[0].userId==userId){
+        //        let val = await BlogModel.findByIdAndUpdate(id, req.body)
+        //         // console.log(val)
+        //         res.status(200).json({message:"Blog Updated Successfully"})
+        //     }
+        //     else{
+        //         res.status(400).json({error:"not allowed"})
+        //     }
+        // })
+
+        await BlogModel.findByIdAndUpdate(id, req.body)
+        res.status(200).json({message:"Blog Updated Successfully"})
 
         
     } catch (error) {
