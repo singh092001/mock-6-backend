@@ -149,7 +149,7 @@ blogRoute.patch("/:id/like",auth, async(req,res)=>{
 
         const {id} = req.params
 
-        await BlogModel.findByIdAndUpdate(req.body, id)
+        await BlogModel.findByIdAndUpdate(id, req.body)
 
         res.status(200).json({message:"Blog Updated Successfully"})
         
